@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Correo Temporal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .email-box {
+      font-size: 1.5em;
+      margin: 20px 0;
+      background: #eee;
+      padding: 10px;
+      border-radius: 8px;
+      word-break: break-all;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📨 Tu Correo Temporal</h1>
+    <div https://github.com/frank88988/buzon-temporal/tree/mainid="correo" class="email-box">Generando...</div>
+    <button onclick="copiarCorreo()">📋 Copiar</button>
+
+    <h2 style="margin-top: 40px;">📥 Buzón de Mensajes</h2>
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRFLJwy42tiffFTUqY0YMWyKkL5h_rnIIsbU99rX_VXvlNVU-aZ5d1ITfHrYE5o4RxxDJY4vG4D9KFA/pubhtml" title="Buzón privado"></iframe>
+  </div>
+
+  <script>
+    function generarCorreo() {
+      const caracteres = "abcdefghijklmnopqrstuvwxyz0123456789";
+      let alias = "";
+      for (let i = 0; i < 8; i++) {
+        alias += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+      }
+      return `${alias}@usacorreo.my`; // ← Reemplaza con tu dominio real
+    }
+
+    const correoTemporal = generarCorreo();
+    document.getElementById("correo").innerText = correoTemporal;
+
+    function copiarCorreo() {
+      navigator.clipboard.writeText(correoTemporal).then(() => {
+        alert("Correo copiado: " + correoTemporal);
+      });
+    }
+  </script>
+</body>
+</html>
